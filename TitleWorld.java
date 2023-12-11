@@ -6,16 +6,19 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MyWorld extends World
+public class TitleWorld extends World
 {
-
-    /**
-     * Constructor for objects of class MyWorld.
-     * 
-     */
-    public MyWorld()
+    // Title
+    Label gamNam = new Label("Game Name",100);
+    public TitleWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
+        addObject(gamNam,300,150);
+        prepare();
+    }
+    public void prepare(){
+
     }
 }
+
