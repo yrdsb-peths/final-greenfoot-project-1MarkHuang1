@@ -16,6 +16,8 @@ public class TitleWorld extends World
         super(600, 400, 1);
         addObject(gamNam,300,150);
         prepare();
+        Button PlayBut = new Button("Start1tes.png", new GameWorld());
+        addObject(PlayBut,getWidth()/2,300);
     }
     public void prepare(){
 
