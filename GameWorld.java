@@ -17,7 +17,9 @@ public class GameWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
-        Label Gmae = new Label("GameWOrld",50);
-        addObject(Gmae,100,100);
+        Label Game = new Label("GameWOrld",10);
+        addObject(Game,100,100);
+        Player player = new Player();
+        addObject(player, getWidth()/2, 200);
     }
 }

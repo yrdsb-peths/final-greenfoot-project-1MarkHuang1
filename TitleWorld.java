@@ -9,15 +9,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class TitleWorld extends World
 {
     // Title
-    Label gamNam = new Label("Game Name",100);
+    Label gameName = new Label("Game Name",100);
     public TitleWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
-        addObject(gamNam,300,150);
+        addObject(gameName,300,150);
         prepare();
-        StartButton PlayBut = new StartButton();
-        addObject(PlayBut,getWidth()/2,300); 
+        StartButton playButton = new StartButton();
+        addObject(playButton,getWidth()/2,300); 
        
     }
     public void prepare(){
