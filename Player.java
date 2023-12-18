@@ -36,6 +36,9 @@ public class Player extends Actor
             move(-3);
             setImage(left[imageIndex]);
             imageIndex = (imageIndex + 1)% left.length;
+            if (hitWalls()){
+                move(+3);
+            }
         }
         else{
             setImage(walk[0]);
@@ -44,17 +47,35 @@ public class Player extends Actor
             move(3);
             setImage(right[imageIndex]);
             imageIndex = (imageIndex + 1)% right.length;
+            if (hitWalls()){
+                move(-3);
+            }
         }
         if(Greenfoot.isKeyDown("w")){
             setLocation(getX() ,getY()-3);
             setImage(back[imageIndex]);
             imageIndex = (imageIndex + 1)% back.length;
+            if (hitWalls()){
+                setLocation(getX(),getY()+3);
+            }
         }
         if(Greenfoot.isKeyDown("s")){
             setLocation(getX() ,getY()+3);
             setImage(walk[imageIndex]);
             imageIndex = (imageIndex + 1)% walk.length;
+            if (hitWalls()){
+                setLocation(getX(),getY()-3);
+            }
         }
         
+    }
+    //check no hit walls
+    public boolean hitWalls(){
+        if (isTouching(BigWalls.class)){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
