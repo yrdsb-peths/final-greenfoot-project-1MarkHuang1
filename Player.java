@@ -7,6 +7,7 @@ public class Player extends Actor
     GreenfootImage[] walk = new GreenfootImage[3];    
     GreenfootImage[] right = new GreenfootImage[3];
     GreenfootImage[] left = new GreenfootImage[3];
+    GreenfootImage[] back = new GreenfootImage[3];
 
     public Player(){
         for  (int i = 0; i< walk.length; i++){
@@ -14,11 +15,15 @@ public class Player extends Actor
             walk[i].scale(25,30);
         }
         for (int i = 0; i < right.length; i++){
-            right[i] = new GreenfootImage("images/right/right" + i + ".png");
+            right[i] = new GreenfootImage("images/side/right" + i + ".png");
             right[i].scale(25,30);
         }
+        for (int i = 0; i < back.length; i++){
+            back[i] = new GreenfootImage("images/back/back" + i + ".png");
+            back[i].scale(25,30);
+        }
         for (int i = 0; i < left.length; i++){
-            left[i] = new GreenfootImage("images/right/right" + i + ".png");
+            left[i] = new GreenfootImage("images/side/right" + i + ".png");
             left[i].mirrorHorizontally();
             left[i].scale(25,30);
         }
@@ -39,6 +44,8 @@ public class Player extends Actor
         }
         if(Greenfoot.isKeyDown("w")){
             setLocation(getX() ,getY()-3);
+            setImage(back[imageIndex]);
+            imageIndex = (imageIndex + 1)% back.length;
         }
         if(Greenfoot.isKeyDown("s")){
             setLocation(getX() ,getY()+3);
