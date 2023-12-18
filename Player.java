@@ -29,13 +29,16 @@ public class Player extends Actor
         }
         setImage(walk[0]);
     }
-    int imageIndex = 0;
+    int imageIndex = 0; 
     public void act()
     {
         if (Greenfoot.isKeyDown("a")){
             move(-3);
             setImage(left[imageIndex]);
             imageIndex = (imageIndex + 1)% left.length;
+        }
+        else{
+            setImage(walk[0]);
         }
         if(Greenfoot.isKeyDown("d") ){
             move(3);
