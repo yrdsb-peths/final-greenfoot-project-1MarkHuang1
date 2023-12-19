@@ -36,7 +36,7 @@ public class Player extends Actor
             move(-3);
             setImage(left[imageIndex]);
             imageIndex = (imageIndex + 1)% left.length;
-            if (hitWalls()){
+            if (hitWalls()|| button()){
                 move(+3);
             }
         }
@@ -47,7 +47,7 @@ public class Player extends Actor
             move(3);
             setImage(right[imageIndex]);
             imageIndex = (imageIndex + 1)% right.length;
-            if (hitWalls()){
+            if (hitWalls()|| button()){
                 move(-3);
             }
         }
@@ -55,7 +55,7 @@ public class Player extends Actor
             setLocation(getX() ,getY()-3);
             setImage(back[imageIndex]);
             imageIndex = (imageIndex + 1)% back.length;
-            if (hitWalls()){
+            if (hitWalls()|| button()){
                 setLocation(getX(),getY()+3);
             }
         }
@@ -63,7 +63,7 @@ public class Player extends Actor
             setLocation(getX() ,getY()+3);
             setImage(walk[imageIndex]);
             imageIndex = (imageIndex + 1)% walk.length;
-            if (hitWalls()){
+            if (hitWalls()|| button()){
                 setLocation(getX(),getY()-3);
             }
         }
@@ -71,7 +71,15 @@ public class Player extends Actor
     }
     //check no hit walls
     public boolean hitWalls(){
-        if (isTouching(BigWalls.class)){
+        if (isTouching(Walls.class)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public boolean button(){
+        if (isTouching(NextButton.class)){
             return true;
         }
         else{

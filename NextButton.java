@@ -1,12 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-
-public class StartButton extends Actor
+public class NextButton extends Actor
 {
+
     SimpleTimer animationTimer;
-    public void StartButton(){
-        setImage("images/Start1.png");
+    public NextButton(){
+        setImage("images/Next1.png");
+        GreenfootImage image = getImage();
+        image.scale(20,20);
     }
+
     public void act()
     {
         //Change World when pressed
@@ -16,18 +19,19 @@ public class StartButton extends Actor
         }
         if(animationTimer != null){
             if(animationTimer.millisElapsed() > 120){
-                Maze1 maze1 = new Maze1();
-                Greenfoot.setWorld(maze1);
+                TitleWorld titleWorld = new TitleWorld();
+                Greenfoot.setWorld(titleWorld);
             }
         }
-    
+
     }
     // animate on press
     public void animate(){
         if (Greenfoot.mouseClicked(this))
         {
-            setImage("images/Start2.png");
+            setImage("images/Next2.png");
+            GreenfootImage image = getImage();
+            image.scale(20,20);
         }   
     }
-   
 }

@@ -16,12 +16,15 @@ public class Maze1 extends World
     public Maze1()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(800, 500, 1,false); 
+        super(600, 500,1); 
         Label Game = new Label("GameWOrld",10);
         addObject(Game,100,100);
         Player player = new Player();
-        addObject(player, getWidth()/2, 200);
+        addObject(player, getWidth()/2, getHeight()/2);
+        NextButton nextButton = new NextButton();
+        addObject(nextButton, 50, 300);
         prepare();
+        
     }
     
     /**
@@ -30,8 +33,5 @@ public class Maze1 extends World
      */
     private void prepare()
     {
-
-        BigWalls bigWalls = new BigWalls();
-        addObject(bigWalls,780,183);
     }
 }
