@@ -1,11 +1,13 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-public class NextButton extends Actor
+public class FinishButton extends Actor
 {
 
     SimpleTimer animationTimer;
-    public NextButton(){
-        setImage("images/Next1.png");
+    public boolean Pressed = false;
+
+    public FinishButton(){
+        setImage("images/Finish1.png");
         GreenfootImage image = getImage();
         image.scale(20,20);
     }
@@ -14,8 +16,9 @@ public class NextButton extends Actor
     {
         //Change World when pressed
         animate();
-        if (Greenfoot.mouseClicked(this)){
+        if (Pressed){
             animationTimer = new SimpleTimer();
+            Pressed = false;
         }
         if(animationTimer != null){
             if(animationTimer.millisElapsed() > 120){
@@ -25,11 +28,13 @@ public class NextButton extends Actor
         }
 
     }
+    //timing the press
     // animate on press
     public void animate(){
-        if (Greenfoot.mouseClicked(this))
+        if (isTouching(Player.class)&&Greenfoot.isKeyDown("f"))
         {
-            setImage("images/Next2.png");
+            Pressed = true;
+            setImage("images/Finish2.png");
             GreenfootImage image = getImage();
             image.scale(20,20);
         }   
