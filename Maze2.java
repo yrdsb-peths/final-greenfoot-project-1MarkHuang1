@@ -1,31 +1,41 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Maze2 here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+
 public class Maze2 extends World
 {
+    SimpleTimer timer = new SimpleTimer();
     public static boolean back = false;
+    Label time;
     public Maze2()
     {    
         super(600, 500, 1); 
-        Label Game = new Label("Maze2",20);
+        Label Game = new Label("World2",20);
         addObject(Game,100,100);
-
-        
-        ////
+        //time 
+        Label timeLabel = new Label("Time:",30);
+        addObject(timeLabel,30,130);
+        time = new Label(0,30);
+        addObject(time,100,130);
+        //Player
         Player player = new Player();
         addObject(player, getWidth()/2, getHeight()/2);
         prepare();
     }
-    
-    /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
-     */
+    public void act(){
+        time();
+    }
+    public void time(){
+        if (timer.millisElapsed()>1000){
+            Maze1.sec++;
+            time.setValue(Maze1.min + ":" + Maze1.sec);
+            timer.mark();
+        }
+        if (Maze1.sec == 60){
+            Maze1.sec = 0;
+            Maze1.min += 1;
+            time.setValue(Maze1.min + ":" + Maze1.sec);
+        }
+    }
     private void prepare()
     {
         ///

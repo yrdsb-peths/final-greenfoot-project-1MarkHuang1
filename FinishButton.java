@@ -5,7 +5,6 @@ public class FinishButton extends Actor
 
     SimpleTimer animationTimer;
     public boolean Pressed = false;
-
     public FinishButton(){
         setImage("images/Finish1.png");
         GreenfootImage image = getImage();
@@ -22,8 +21,8 @@ public class FinishButton extends Actor
         }
         if(animationTimer != null){
             if(animationTimer.millisElapsed() > 120){
-                TitleWorld titleWorld = new TitleWorld();
-                Greenfoot.setWorld(titleWorld);
+                FinishScreen end = new FinishScreen();
+                Greenfoot.setWorld(end);
             }
         }
 

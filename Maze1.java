@@ -8,23 +8,26 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Maze1 extends World
 {
-
-    /**
-     * Constructor for objects of class GameWorld.
-     * 
-     * 
-     */
+    public static int sec =0;
+    public static int min =0;
+    SimpleTimer timer = new SimpleTimer();
     Player player;
+    Label time;
     public Maze1()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 500,1); 
         Label Game = new Label("World1",20);
         addObject(Game,100,100);
+        //time
+        Label timeLabel = new Label("Time:",30);
+        addObject(timeLabel,100,130);
+        time = new Label(0,30);
+        addObject(time,180,130);
+        //mimic
         Mimic mimic = new Mimic();
         addObject(mimic,50,200);
-        
-        ////
+        //player
         player = new Player();
         addObject(player, getWidth()/2, getHeight()/2);
         prepare();
@@ -35,8 +38,20 @@ public class Maze1 extends World
             player.setLocation(340,484);
         }
         Maze2.back = false;
+        time();
     }
-    
+    public void time(){
+        if (timer.millisElapsed()>1000){
+            sec++;
+            time.setValue(min + ":" + sec);
+            timer.mark();
+        }
+        if (sec == 60){
+            sec = 0;
+            min += 1;
+            time.setValue(min + ":" + sec);
+        }
+    }
     private void prepare()
     {
         ////

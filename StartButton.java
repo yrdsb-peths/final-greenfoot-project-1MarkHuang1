@@ -16,6 +16,8 @@ public class StartButton extends Actor
         }
         if(animationTimer != null){
             if(animationTimer.millisElapsed() > 120){
+                Maze1.min = 0;
+                Maze1.sec = 0;
                 Maze1 maze1 = new Maze1();
                 Greenfoot.setWorld(maze1);
             }
