@@ -6,6 +6,7 @@ public class Maze2 extends World
     SimpleTimer timer = new SimpleTimer();
     public static boolean back = false;
     Label time;
+    Label hp;
     public Maze2()
     {    
         super(600, 500, 1); 
@@ -16,6 +17,9 @@ public class Maze2 extends World
         addObject(timeLabel,30,130);
         time = new Label(0,30);
         addObject(time,100,130);
+        //health
+        hp = new Label(0,30);
+        addObject(hp,100,160);
         //Player
         Player player = new Player();
         addObject(player, getWidth()/2, getHeight()/2);
@@ -23,6 +27,7 @@ public class Maze2 extends World
     }
     public void act(){
         time();
+        hp.setValue(Player.health);
     }
     public void time(){
         if (timer.millisElapsed()>1000){
@@ -36,13 +41,14 @@ public class Maze2 extends World
             time.setValue(Maze1.min + ":" + Maze1.sec);
         }
     }
+    
     private void prepare()
     {
         ///
         Real2 real2 = new Real2();
         addObject(real2,100,403);
         ///
-        
+
         Walls walls = new Walls();
         addObject(walls,297,194);
         Walls walls2 = new Walls();
@@ -185,6 +191,89 @@ public class Maze2 extends World
         addObject(mimic225,23,168);
         Mimic2 mimic226 = new Mimic2();
         addObject(mimic226,326,139);
-        
+
+        Spike spike = new Spike();
+        addObject(spike,527,337);
+        Spike spike2 = new Spike();
+        addObject(spike2,548,336);
+        Spike spike3 = new Spike();
+        addObject(spike3,571,335);
+        Spike spike4 = new Spike();
+        addObject(spike4,511,449);
+        Spike spike5 = new Spike();
+        addObject(spike5,533,449);
+        Spike spike6 = new Spike();
+        addObject(spike6,551,444);
+        Spike spike7 = new Spike();
+        addObject(spike7,252,381);
+        Spike spike8 = new Spike();
+        addObject(spike8,174,399);
+        Spike spike9 = new Spike();
+        addObject(spike9,236,462);
+        Spike spike10 = new Spike();
+        addObject(spike10,176,488);
+        Spike spike11 = new Spike();
+        addObject(spike11,36,439);
+        Spike spike12 = new Spike();
+        addObject(spike12,62,492);
+        Spike spike13 = new Spike();
+        addObject(spike13,110,419);
+        Spike spike14 = new Spike();
+        addObject(spike14,64,371);
+        Spike spike15 = new Spike();
+        addObject(spike15,49,371);
+        Spike spike16 = new Spike();
+        addObject(spike16,28,367);
+        Spike spike17 = new Spike();
+        addObject(spike17,114,326);
+        Spike spike18 = new Spike();
+        addObject(spike18,162,281);
+        walls33.setLocation(46,233);
+        Spike spike19 = new Spike();
+        addObject(spike19,102,222);
+        Spike spike20 = new Spike();
+        addObject(spike20,263,212);
+        Spike spike21 = new Spike();
+        addObject(spike21,534,178);
+        removeObject(spike21);
+        walls33.setLocation(23,208);
+        Walls walls44 = new Walls();
+        addObject(walls44,22,207);
+        removeObject(walls33);
+        Spike spike22 = new Spike();
+        addObject(spike22,560,128);
+        Spike spike23 = new Spike();
+        addObject(spike23,559,188);
+        Spike spike24 = new Spike();
+        addObject(spike24,468,37);
+        Spike spike25 = new Spike();
+        addObject(spike25,471,23);
+        Spike spike26 = new Spike();
+        addObject(spike26,413,189);
+        Spike spike27 = new Spike();
+        addObject(spike27,435,189);
+        Spike spike28 = new Spike();
+        addObject(spike28,58,51);
+        Spike spike29 = new Spike();
+        addObject(spike29,82,48);
+        Spike spike30 = new Spike();
+        addObject(spike30,38,53);
+        Spike spike31 = new Spike();
+        addObject(spike31,102,55);
+        Spike spike32 = new Spike();
+        addObject(spike32,249,35);
+        Spike spike33 = new Spike();
+        addObject(spike33,279,162);
+        Spike spike34 = new Spike();
+        addObject(spike34,397,490);
+        Spike spike35 = new Spike();
+        addObject(spike35,418,491);
+        Spike spike36 = new Spike();
+        addObject(spike36,338,488);
+        Spike spike37 = new Spike();
+        addObject(spike37,365,490);
+        spike37.setLocation(376,490);
+        Spike spike38 = new Spike();
+        addObject(spike38,376,490);
     }
 }

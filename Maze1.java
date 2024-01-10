@@ -13,6 +13,7 @@ public class Maze1 extends World
     SimpleTimer timer = new SimpleTimer();
     Player player;
     Label time;
+    Label hp;
     public Maze1()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -21,16 +22,20 @@ public class Maze1 extends World
         addObject(Game,100,100);
         //time
         Label timeLabel = new Label("Time:",30);
-        addObject(timeLabel,100,130);
+        addObject(timeLabel,50,130);
         time = new Label(0,30);
-        addObject(time,180,130);
+        addObject(time,120,130);
+        //health
+        hp = new Label(0,30);
+        addObject(hp,120,160);
         //mimic
         Mimic mimic = new Mimic();
         addObject(mimic,50,200);
+        //
+        prepare();
         //player
         player = new Player();
         addObject(player, getWidth()/2, getHeight()/2);
-        prepare();
         
     }
     public void act(){
@@ -39,6 +44,7 @@ public class Maze1 extends World
         }
         Maze2.back = false;
         time();
+        hp.setValue(Player.health);
     }
     public void time(){
         if (timer.millisElapsed()>1000){
@@ -52,13 +58,14 @@ public class Maze1 extends World
             time.setValue(min + ":" + sec);
         }
     }
+    
     private void prepare()
     {
         ////
         FinishButton finishButton = new FinishButton();
         addObject(finishButton,417,484);
         ////
-        
+
         Walls walls = new Walls();
         addObject(walls,377,441);
         Walls walls2 = new Walls();
@@ -191,11 +198,84 @@ public class Maze1 extends World
         addObject(mimic24,475,179);
         Mimic mimic25 = new Mimic();
         addObject(mimic25,224,117);
-        
-        
+
         ////
         Real1 real1 = new Real1();
         addObject(real1,359,23);
         ////
+
+        Spike spike = new Spike();
+        addObject(spike,389,286);
+        spike.setLocation(557,404);
+        removeObject(spike);
+        Spike spike2 = new Spike();
+        addObject(spike2,104,392);
+        Spike spike3 = new Spike();
+        addObject(spike3,150,441);
+        Spike spike4 = new Spike();
+        addObject(spike4,325,11);
+        Spike spike5 = new Spike();
+        addObject(spike5,324,27);
+        Spike spike6 = new Spike();
+        addObject(spike6,321,40);
+        Spike spike7 = new Spike();
+        addObject(spike7,471,73);
+        Spike spike8 = new Spike();
+        addObject(spike8,533,67);
+        Spike spike9 = new Spike();
+        addObject(spike9,564,71);
+        Spike spike10 = new Spike();
+        addObject(spike10,582,65);
+        Spike spike11 = new Spike();
+        addObject(spike11,596,81);
+        Spike spike12 = new Spike();
+        addObject(spike12,524,357);
+        Spike spike13 = new Spike();
+        addObject(spike13,594,353);
+        Spike spike14 = new Spike();
+        addObject(spike14,544,403);
+        Spike spike15 = new Spike();
+        addObject(spike15,594,442);
+        removeObject(spike15);
+        addObject(spike15,594,463);
+        Spike spike16 = new Spike();
+        addObject(spike16,366,496);
+        Spike spike17 = new Spike();
+        addObject(spike17,250,435);
+        Spike spike18 = new Spike();
+        addObject(spike18,40,47);
+        Spike spike19 = new Spike();
+        addObject(spike19,196,282);
+        Spike spike20 = new Spike();
+        addObject(spike20,82,211);
+        Spike spike21 = new Spike();
+        addObject(spike21,498,205);
+        Spike spike22 = new Spike();
+        addObject(spike22,38,365);
+        Mimic mimic26 = new Mimic();
+        addObject(mimic26,329,222);
+        Mimic mimic27 = new Mimic();
+        addObject(mimic27,370,218);
+        Mimic mimic28 = new Mimic();
+        addObject(mimic28,529,184);
+        Mimic mimic29 = new Mimic();
+        addObject(mimic29,584,186);
+        Mimic mimic30 = new Mimic();
+        addObject(mimic30,593,429);
+        Mimic mimic31 = new Mimic();
+        addObject(mimic31,384,17);
+        mimic31.setLocation(390,23);
+        Mimic mimic32 = new Mimic();
+        addObject(mimic32,390,23);
+        Mimic mimic33 = new Mimic();
+        addObject(mimic33,424,35);
+        Mimic mimic34 = new Mimic();
+        addObject(mimic34,128,39);
+        Mimic mimic35 = new Mimic();
+        addObject(mimic35,94,30);
+        Mimic mimic36 = new Mimic();
+        addObject(mimic36,76,347);
+        Mimic mimic37 = new Mimic();
+        addObject(mimic37,66,476);
     }
 }

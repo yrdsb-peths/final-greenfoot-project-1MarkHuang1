@@ -4,11 +4,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Player extends Actor
 {
     SimpleTimer animationTimer = new SimpleTimer();
+    SimpleTimer hpLose = new SimpleTimer();
     GreenfootImage[] walk = new GreenfootImage[3];    
     GreenfootImage[] right = new GreenfootImage[3];
     GreenfootImage[] left = new GreenfootImage[3];
     GreenfootImage[] back = new GreenfootImage[3];
-
+    public static int health = 20;
     public Player(){
         for  (int i = 0; i< walk.length; i++){
             walk[i] = new GreenfootImage("images/front/char" + i + ".png");
@@ -67,7 +68,9 @@ public class Player extends Actor
                 setLocation(getX(),getY()-3);
             }
         }
-        
+        hitSpike();
+        hpSystem();
+        dieEnding();
     }
     //check no hit walls
     public boolean hitWalls(){
@@ -78,4 +81,31 @@ public class Player extends Actor
             return false;
         }
     }
+    public boolean hitSpike(){
+        if (isTouching(Spike.class)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public int hpSystem(){
+        if(hitSpike()){
+            if(hpLose.millisElapsed()>100){
+                health = health-1;
+                hpLose.mark();
+            }
+            
+        }
+        return health;
+    }
+    public void dieEnding(){
+        if (health == 0){
+            FinishButton.fMin = Maze1.min;
+            FinishButton.fSec = Maze1.sec;
+            FinishScreen end = new FinishScreen();
+            Greenfoot.setWorld(end);
+            health = 20;
+        }
+    }    
 }

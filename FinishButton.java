@@ -5,6 +5,8 @@ public class FinishButton extends Actor
 
     SimpleTimer animationTimer;
     public boolean Pressed = false;
+    public static int fMin;
+    public static int fSec;
     public FinishButton(){
         setImage("images/Finish1.png");
         GreenfootImage image = getImage();
@@ -21,6 +23,8 @@ public class FinishButton extends Actor
         }
         if(animationTimer != null){
             if(animationTimer.millisElapsed() > 120){
+                fMin = Maze1.min;
+                fSec = Maze1.sec;
                 FinishScreen end = new FinishScreen();
                 Greenfoot.setWorld(end);
             }
