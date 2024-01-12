@@ -14,11 +14,10 @@ public class TitleWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
-        addObject(gameName,300,150);
+        addObject(gameName,300,100);
         prepare();
         StartButton playButton = new StartButton();
-        addObject(playButton,getWidth()/2,300); 
-       
+        addObject(playButton,getWidth()/2,200); 
     }
     public void prepare(){
 

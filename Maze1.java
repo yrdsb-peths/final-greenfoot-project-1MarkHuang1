@@ -10,6 +10,7 @@ public class Maze1 extends World
 {
     public static int sec =0;
     public static int min =0;
+    public static int tries = 0;
     SimpleTimer timer = new SimpleTimer();
     Player player;
     Label time;
@@ -277,5 +278,14 @@ public class Maze1 extends World
         addObject(mimic36,76,347);
         Mimic mimic37 = new Mimic();
         addObject(mimic37,66,476);
+        mimic33.setLocation(415,38);
+        Spike spike23 = new Spike();
+        addObject(spike23,409,36);
+        Spike spike24 = new Spike();
+        addObject(spike24,307,303);
+        Spike spike25 = new Spike();
+        addObject(spike25,329,302);
+        Spike spike26 = new Spike();
+        addObject(spike26,347,299);
     }
 }
