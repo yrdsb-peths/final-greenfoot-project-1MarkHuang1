@@ -13,7 +13,6 @@ public class FinishButton extends Actor
         GreenfootImage image = getImage();
         image.scale(20,20);
     }
-
     public void act()
     {
         //Change World when pressed

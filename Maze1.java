@@ -15,6 +15,11 @@ public class Maze1 extends World
     Player player;
     Label time;
     Label hp;
+    public static int which = 1;
+    //Real buttons
+    Real1 real1 = new Real1();
+    Real1 real2 = new Real1();
+    Real1 real3 = new Real1();
     public Maze1()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -32,12 +37,19 @@ public class Maze1 extends World
         //mimic
         Mimic mimic = new Mimic();
         addObject(mimic,50,200);
+        //Add first solution
+        addObject(real1,359,23);
         //
         prepare();
+        //add a mimic to cover one solution
+        Mimic mimic50 = new Mimic();
+        addObject(mimic50,359,23);
         //player
         player = new Player();
         addObject(player, getWidth()/2, getHeight()/2);
-        
+        //
+        FinishButton finishButton2 = new FinishButton();
+        addObject(finishButton2,391,269);
     }
     public void act(){
         if (Maze2.back == true){
@@ -45,6 +57,7 @@ public class Maze1 extends World
         }
         Maze2.back = false;
         time();
+        changeSolution();
         hp.setValue(Player.health);
     }
     public void time(){
@@ -59,7 +72,31 @@ public class Maze1 extends World
             time.setValue(min + ":" + sec);
         }
     }
-    
+    public void checkSolution(){
+        if (which == 1){
+            removeObject(real2);
+            removeObject(real3);
+            addObject(real1,359,23);
+        }
+        else if (which == 2){
+            removeObject(real1);
+            removeObject(real3);
+            addObject(real2,568,28);
+        }
+        else if (which == 3){
+            removeObject(real2);
+            removeObject(real1);
+            addObject(real3,22,385);
+        }
+    }
+    public void changeSolution(){
+        if (FinishScreen.change1){
+            which = Greenfoot.getRandomNumber(3) + 1;
+            checkSolution();
+            FinishScreen.change2 = true;
+            FinishScreen.change1 = false;
+            }
+    }
     private void prepare()
     {
         ////
@@ -133,8 +170,6 @@ public class Maze1 extends World
         addObject(walls31,331,390);
         Walls walls32 = new Walls();
         addObject(walls32,329,339);
-        Walls walls33 = new Walls();
-        addObject(walls33,182,71);
         Walls walls34 = new Walls();
         addObject(walls34,22,81);
         Walls walls35 = new Walls();
@@ -199,11 +234,6 @@ public class Maze1 extends World
         addObject(mimic24,475,179);
         Mimic mimic25 = new Mimic();
         addObject(mimic25,224,117);
-
-        ////
-        Real1 real1 = new Real1();
-        addObject(real1,359,23);
-        ////
 
         Spike spike = new Spike();
         addObject(spike,389,286);
@@ -287,5 +317,11 @@ public class Maze1 extends World
         addObject(spike25,329,302);
         Spike spike26 = new Spike();
         addObject(spike26,347,299);
+        walls24.setLocation(224,82);
+
+        Walls walls33 = new Walls();
+        addObject(walls33,224,55);
+        Walls walls41 = new Walls();
+        addObject(walls41,177,79);
     }
 }
