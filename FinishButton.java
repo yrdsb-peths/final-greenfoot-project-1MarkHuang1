@@ -7,12 +7,12 @@ public class FinishButton extends Actor
     public boolean Pressed = false;
     public static int fMin;
     public static int fSec;
+    public static boolean which = false;
     public FinishButton(){
         setImage("images/Finish1.png");
         GreenfootImage image = getImage();
         image.scale(20,20);
     }
-
     public void act()
     {
         //Change World when pressed
@@ -25,6 +25,8 @@ public class FinishButton extends Actor
             if(animationTimer.millisElapsed() > 120){
                 fMin = Maze1.min;
                 fSec = Maze1.sec;
+                Player.health = 20;
+                which = true;
                 FinishScreen end = new FinishScreen();
                 Greenfoot.setWorld(end);
             }

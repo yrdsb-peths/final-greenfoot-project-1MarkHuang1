@@ -7,6 +7,11 @@ public class Maze2 extends World
     public static boolean back = false;
     Label time;
     Label hp;
+    ///
+    Real2 real1 = new Real2();
+    Real2 real2 = new Real2();
+    Real2 real3 = new Real2();
+    ///
     public Maze2()
     {    
         super(600, 500, 1); 
@@ -20,6 +25,12 @@ public class Maze2 extends World
         //health
         hp = new Label(0,30);
         addObject(hp,100,160);
+        //add mimic to cover up solution
+        Mimic2 mimic2222 = new Mimic2();
+        addObject(mimic2222,100,403);
+        //Add first solution 
+        addObject(real1,100,403);
+
         //Player
         Player player = new Player();
         addObject(player, getWidth()/2, getHeight()/2);
@@ -28,6 +39,7 @@ public class Maze2 extends World
     public void act(){
         time();
         hp.setValue(Player.health);
+        changeSolution();
     }
     public void time(){
         if (timer.millisElapsed()>1000){
@@ -41,14 +53,32 @@ public class Maze2 extends World
             time.setValue(Maze1.min + ":" + Maze1.sec);
         }
     }
-    
+    public void checkSolution(){
+        if (Maze1.which == 1){
+            removeObject(real2);
+            removeObject(real3);
+            addObject(real1,100,403);
+        }
+        else if (Maze1.which == 2){
+            removeObject(real1);
+            removeObject(real3);
+            addObject(real2,22,31);
+        }
+        else if (Maze1.which == 3){
+            removeObject(real2);
+            removeObject(real1);
+            addObject(real3,13,430);
+        }
+    }
+    public void changeSolution(){
+        if (FinishScreen.change2){
+            Maze1.which = Greenfoot.getRandomNumber(3) + 1;
+            checkSolution();
+            FinishScreen.change2 = false;
+        }
+    }
     private void prepare()
     {
-        ///
-        Real2 real2 = new Real2();
-        addObject(real2,100,403);
-        ///
-
         Walls walls = new Walls();
         addObject(walls,297,194);
         Walls walls2 = new Walls();
