@@ -21,12 +21,11 @@ public class Maze1 extends World
     Real1 real2 = new Real1();
     Real1 real3 = new Real1();
     //bg music
-    public static boolean stopMusic = false;
-    public static boolean playMusic = false;
+
     GreenfootSound mazeMusic = new GreenfootSound("mazeMusic.mp3");
 
     public Maze1()
-    {    
+    {   
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 500,1); 
         Label Game = new Label("World1",20);
@@ -56,9 +55,9 @@ public class Maze1 extends World
         FinishButton finishButton2 = new FinishButton();
         addObject(finishButton2,391,269);
     }
+
     public void act(){
-        playMusic();
-        stopMusic();
+        
         if (Maze2.back){
             player.setLocation(340,484);
         }
@@ -66,22 +65,17 @@ public class Maze1 extends World
         time();
         changeSolution();
         hp.setValue(Player.health);
-    }
-    public void playMusic(){
-        if (playMusic){
-            System.out.println(playMusic);
-            mazeMusic.playLoop();
-            playMusic = false;
-        }
-    }
-    public void stopMusic(){
-        if (stopMusic){
-            mazeMusic.stop();
-            stopMusic = false;
-        }
+
         if (Player.health == 0){
             mazeMusic.stop();
         }
+    }
+
+    public void playMusic(){
+        mazeMusic.playLoop();
+    }
+    public void stopMusic(){
+        mazeMusic.stop();
     }
     public void time(){
         if (timer.millisElapsed()>1000){
@@ -95,6 +89,7 @@ public class Maze1 extends World
             time.setValue(min + ":" + sec);
         }
     }
+
     public void checkSolution(){
         if (which == 1){
             removeObject(real2);
@@ -112,14 +107,16 @@ public class Maze1 extends World
             addObject(real3,22,385);
         }
     }
+
     public void changeSolution(){
         if (FinishScreen.change1){
             which = Greenfoot.getRandomNumber(3) + 1;
             checkSolution();
             FinishScreen.change2 = true;
             FinishScreen.change1 = false;
-            }
+        }
     }
+
     private void prepare()
     {
         ////

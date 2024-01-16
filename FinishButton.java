@@ -39,7 +39,7 @@ public class FinishButton extends Actor
         if (isTouching(Player.class)&&Greenfoot.isKeyDown("f"))
         {
             Pressed = true;
-            Maze1.stopMusic = true;
+            
             setImage("images/Finish2.png");
             GreenfootImage image = getImage();
             image.scale(20,20);

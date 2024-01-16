@@ -1,37 +1,50 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-
 public class StartButton extends Actor
 {
     SimpleTimer animationTimer;
+    boolean gameStarted = false;
+
+    public StartButton() {
+        animationTimer = new SimpleTimer();
+    }
+
     public void StartButton(){
         setImage("images/Start1.png");
     }
+
     public void act()
     {
         //Change World when pressed
         animate();
         if (Greenfoot.mouseClicked(this)){
-            animationTimer = new SimpleTimer();
+            animationTimer.mark();
+            gameStarted = true;
         }
-        if(animationTimer != null){
+        if(gameStarted){
             if(animationTimer.millisElapsed() > 120){
-                Maze1.min = 0;
-                Maze1.sec = 0;
-                Player.health = 20;
-                Maze1 maze1 = new Maze1();
-                Greenfoot.setWorld(maze1);
+                startGame();
             }
         }
-    
     }
+
+    private void startGame() {
+        Maze1.min = 0;
+        Maze1.sec = 0;
+        Player.health = 20;
+        Maze1 maze1 = new Maze1();
+        maze1.playMusic();
+        
+        Greenfoot.setWorld(maze1);
+    }
+
     // animate on press
     public void animate(){
         if (Greenfoot.mouseClicked(this))
         {
-            Maze1.playMusic = true;
+            
             setImage("images/Start2.png");
         }   
     }
-   
+
 }
