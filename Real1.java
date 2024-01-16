@@ -5,7 +5,6 @@ public class Real1 extends Actor
 
     SimpleTimer animationTimer;
     public boolean Pressed = false;
-
     public Real1(){
         setImage("images/Fake1.png");
         GreenfootImage image = getImage();

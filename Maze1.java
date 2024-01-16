@@ -20,10 +20,7 @@ public class Maze1 extends World
     Real1 real1 = new Real1();
     Real1 real2 = new Real1();
     Real1 real3 = new Real1();
-    //bg music
-
-    GreenfootSound mazeMusic = new GreenfootSound("mazeMusic.mp3");
-
+    FinishButton finishButton = new FinishButton();
     public Maze1()
     {   
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -66,17 +63,8 @@ public class Maze1 extends World
         changeSolution();
         hp.setValue(Player.health);
 
-        if (Player.health == 0){
-            mazeMusic.stop();
-        }
     }
 
-    public void playMusic(){
-        mazeMusic.playLoop();
-    }
-    public void stopMusic(){
-        mazeMusic.stop();
-    }
     public void time(){
         if (timer.millisElapsed()>1000){
             sec++;
@@ -120,7 +108,6 @@ public class Maze1 extends World
     private void prepare()
     {
         ////
-        FinishButton finishButton = new FinishButton();
         addObject(finishButton,417,484);
         ////
 

@@ -33,8 +33,6 @@ public class StartButton extends Actor
         Maze1.sec = 0;
         Player.health = 20;
         Maze1 maze1 = new Maze1();
-        maze1.playMusic();
-        
         Greenfoot.setWorld(maze1);
     }
 

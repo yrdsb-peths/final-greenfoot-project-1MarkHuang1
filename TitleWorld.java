@@ -7,7 +7,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class TitleWorld extends World
 {
+    //bg music
+    GreenfootSound mazeMusic = new GreenfootSound("mazeMusic.mp3");
     // Title
+    public static int play = 0;
     public TitleWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -24,7 +27,10 @@ public class TitleWorld extends World
             Rule rule = new Rule();
             Greenfoot.setWorld(rule);
         }
-        
+        if (play == 0){
+            mazeMusic.playLoop();
+            play += 1;
+        }
     }
 }
 

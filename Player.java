@@ -103,7 +103,6 @@ public class Player extends Actor
             FinishButton.fMin = Maze1.min;
             FinishButton.fSec = Maze1.sec;
             Maze1.tries += 1;
-            
             FinishScreen end = new FinishScreen();
             Greenfoot.setWorld(end);
             health = 20;

@@ -5,7 +5,7 @@ public class Real2 extends Actor
 
     SimpleTimer animationTimer;
     public boolean Pressed = false;
-
+    Maze1 maze1 = new Maze1();
     public Real2(){
         setImage("images/Fake1.png");
         GreenfootImage image = getImage();
@@ -22,12 +22,10 @@ public class Real2 extends Actor
         }
         if(animationTimer != null){
             if(animationTimer.millisElapsed() > 120){
-                Maze1 maze1 = new Maze1();
                 Greenfoot.setWorld(maze1);
                 Maze2.back = true;
             }
         }
-
     }
     //timing the press
     // animate on press
