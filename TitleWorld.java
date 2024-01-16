@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MyWorld here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * This is the title screen 
+ * it has a play button, instruction buttons and a story button
+ * Changes the world to another when pressed one of those buttons
  */
 public class TitleWorld extends World
 {

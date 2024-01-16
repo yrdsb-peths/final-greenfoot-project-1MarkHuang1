@@ -4,7 +4,7 @@ public class FinishButton extends Actor
 {
 
     SimpleTimer animationTimer;
-    public boolean Pressed = false;
+    public static boolean Pressed = false;
     public static int fMin;
     public static int fSec;
     public static boolean which = false;
@@ -39,6 +39,7 @@ public class FinishButton extends Actor
         if (isTouching(Player.class)&&Greenfoot.isKeyDown("f"))
         {
             Pressed = true;
+            Maze1.stopMusic = true;
             setImage("images/Finish2.png");
             GreenfootImage image = getImage();
             image.scale(20,20);

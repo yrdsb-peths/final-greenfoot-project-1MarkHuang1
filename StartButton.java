@@ -29,6 +29,7 @@ public class StartButton extends Actor
     public void animate(){
         if (Greenfoot.mouseClicked(this))
         {
+            Maze1.playMusic = true;
             setImage("images/Start2.png");
         }   
     }

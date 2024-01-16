@@ -33,6 +33,7 @@ public class Player extends Actor
     int imageIndex = 0; 
     public void act()
     {
+        dieEnding();
         if (Greenfoot.isKeyDown("a")){
             move(-3);
             setImage(left[imageIndex]);
@@ -70,7 +71,6 @@ public class Player extends Actor
         }
         hitSpike();
         hpSystem();
-        dieEnding();
     }
     //check no hit walls
     public boolean hitWalls(){
@@ -95,7 +95,6 @@ public class Player extends Actor
                 health = health-1;
                 hpLose.mark();
             }
-            
         }
         return health;
     }
@@ -104,6 +103,7 @@ public class Player extends Actor
             FinishButton.fMin = Maze1.min;
             FinishButton.fSec = Maze1.sec;
             Maze1.tries += 1;
+            Maze1.stopMusic = true;
             FinishScreen end = new FinishScreen();
             Greenfoot.setWorld(end);
             health = 20;

@@ -1,10 +1,8 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class FinishScreen here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * FinishScreen 
+ *
  */
 public class FinishScreen extends World
 {   
