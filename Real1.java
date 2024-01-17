@@ -2,10 +2,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Real1 extends Actor
 {
-
+    GreenfootSound realSound = new GreenfootSound("real.mp3");
     SimpleTimer animationTimer;
     public boolean Pressed = false;
-
     public Real1(){
         setImage("images/Fake1.png");
         GreenfootImage image = getImage();
@@ -33,6 +32,7 @@ public class Real1 extends Actor
     public void animate(){
         if (isTouching(Player.class)&&Greenfoot.isKeyDown("f"))
         {
+            realSound.play();
             Pressed = true;
             setImage("images/Fake2.png");
             GreenfootImage image = getImage();

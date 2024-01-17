@@ -2,9 +2,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class FinishButton extends Actor
 {
-
+    GreenfootSound realSound = new GreenfootSound("real.mp3");
     SimpleTimer animationTimer;
-    public boolean Pressed = false;
+    public boolean pressed = false;
     public static int fMin;
     public static int fSec;
     public static boolean which = false;
@@ -17,9 +17,9 @@ public class FinishButton extends Actor
     {
         //Change World when pressed
         animate();
-        if (Pressed){
+        if (pressed){
             animationTimer = new SimpleTimer();
-            Pressed = false;
+            pressed = false;
         }
         if(animationTimer != null){
             if(animationTimer.millisElapsed() > 120){
@@ -27,8 +27,8 @@ public class FinishButton extends Actor
                 fSec = Maze1.sec;
                 Player.health = 20;
                 which = true;
-                FinishScreen end = new FinishScreen();
-                Greenfoot.setWorld(end);
+                Treasure treasure = new Treasure();
+                Greenfoot.setWorld(treasure);
             }
         }
 
@@ -38,7 +38,10 @@ public class FinishButton extends Actor
     public void animate(){
         if (isTouching(Player.class)&&Greenfoot.isKeyDown("f"))
         {
-            Pressed = true;
+            TitleWorld.mazeMusic.setVolume(0);
+            Treasure.treasureMusic.setVolume(80);
+            pressed = true;
+            realSound.play();
             setImage("images/Finish2.png");
             GreenfootImage image = getImage();
             image.scale(20,20);

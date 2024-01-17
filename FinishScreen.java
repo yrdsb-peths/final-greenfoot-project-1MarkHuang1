@@ -1,10 +1,8 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class FinishScreen here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * FinishScreen 
+ *
  */
 public class FinishScreen extends World
 {   
@@ -56,6 +54,8 @@ public class FinishScreen extends World
     }
     public void act(){
         if (Greenfoot.isKeyDown("space")){
+            TitleWorld.mazeMusic.setVolume(80);
+            Treasure.treasureMusic.setVolume(0);
             if(FinishButton.which){
                 Maze1.tries = 0;
                 FinishButton.which = false;

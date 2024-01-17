@@ -9,6 +9,7 @@ public class Player extends Actor
     GreenfootImage[] right = new GreenfootImage[3];
     GreenfootImage[] left = new GreenfootImage[3];
     GreenfootImage[] back = new GreenfootImage[3];
+    GreenfootSound deathSound = new GreenfootSound("deathSound.mp3");
     public static int health = 20;
     public Player(){
         for  (int i = 0; i< walk.length; i++){
@@ -33,6 +34,7 @@ public class Player extends Actor
     int imageIndex = 0; 
     public void act()
     {
+        dieEnding();
         if (Greenfoot.isKeyDown("a")){
             move(-3);
             setImage(left[imageIndex]);
@@ -70,7 +72,6 @@ public class Player extends Actor
         }
         hitSpike();
         hpSystem();
-        dieEnding();
     }
     //check no hit walls
     public boolean hitWalls(){
@@ -95,7 +96,6 @@ public class Player extends Actor
                 health = health-1;
                 hpLose.mark();
             }
-            
         }
         return health;
     }
@@ -104,6 +104,8 @@ public class Player extends Actor
             FinishButton.fMin = Maze1.min;
             FinishButton.fSec = Maze1.sec;
             Maze1.tries += 1;
+            deathSound.setVolume(50);
+            deathSound.play();
             FinishScreen end = new FinishScreen();
             Greenfoot.setWorld(end);
             health = 20;

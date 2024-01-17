@@ -20,8 +20,9 @@ public class Maze1 extends World
     Real1 real1 = new Real1();
     Real1 real2 = new Real1();
     Real1 real3 = new Real1();
+    FinishButton finishButton = new FinishButton();
     public Maze1()
-    {    
+    {   
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 500,1); 
         Label Game = new Label("World1",20);
@@ -32,6 +33,8 @@ public class Maze1 extends World
         time = new Label(0,30);
         addObject(time,120,130);
         //health
+        Label hpCounter = new Label("Hp:",30);
+        addObject(hpCounter,60,160);
         hp = new Label(0,30);
         addObject(hp,120,160);
         //mimic
@@ -48,18 +51,20 @@ public class Maze1 extends World
         player = new Player();
         addObject(player, getWidth()/2, getHeight()/2);
         //
-        FinishButton finishButton2 = new FinishButton();
-        addObject(finishButton2,391,269);
     }
+
     public void act(){
-        if (Maze2.back == true){
+        
+        if (Maze2.back){
             player.setLocation(340,484);
         }
         Maze2.back = false;
         time();
         changeSolution();
         hp.setValue(Player.health);
+
     }
+
     public void time(){
         if (timer.millisElapsed()>1000){
             sec++;
@@ -72,6 +77,7 @@ public class Maze1 extends World
             time.setValue(min + ":" + sec);
         }
     }
+
     public void checkSolution(){
         if (which == 1){
             removeObject(real2);
@@ -89,18 +95,19 @@ public class Maze1 extends World
             addObject(real3,22,385);
         }
     }
+
     public void changeSolution(){
         if (FinishScreen.change1){
             which = Greenfoot.getRandomNumber(3) + 1;
             checkSolution();
             FinishScreen.change2 = true;
             FinishScreen.change1 = false;
-            }
+        }
     }
+
     private void prepare()
     {
         ////
-        FinishButton finishButton = new FinishButton();
         addObject(finishButton,417,484);
         ////
 
