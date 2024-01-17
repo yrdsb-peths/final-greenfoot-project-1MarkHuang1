@@ -33,6 +33,8 @@ public class Maze1 extends World
         time = new Label(0,30);
         addObject(time,120,130);
         //health
+        Label hpCounter = new Label("Hp:",30);
+        addObject(hpCounter,60,160);
         hp = new Label(0,30);
         addObject(hp,120,160);
         //mimic

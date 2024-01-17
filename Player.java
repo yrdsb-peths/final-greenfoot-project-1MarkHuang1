@@ -9,6 +9,7 @@ public class Player extends Actor
     GreenfootImage[] right = new GreenfootImage[3];
     GreenfootImage[] left = new GreenfootImage[3];
     GreenfootImage[] back = new GreenfootImage[3];
+    GreenfootSound deathSound = new GreenfootSound("deathSound.mp3");
     public static int health = 20;
     public Player(){
         for  (int i = 0; i< walk.length; i++){
@@ -103,6 +104,8 @@ public class Player extends Actor
             FinishButton.fMin = Maze1.min;
             FinishButton.fSec = Maze1.sec;
             Maze1.tries += 1;
+            deathSound.setVolume(50);
+            deathSound.play();
             FinishScreen end = new FinishScreen();
             Greenfoot.setWorld(end);
             health = 20;

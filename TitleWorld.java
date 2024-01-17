@@ -24,6 +24,10 @@ public class TitleWorld extends World
             Rule rule = new Rule();
             Greenfoot.setWorld(rule);
         }
+        if(Greenfoot.isKeyDown("r")){
+            Story story = new Story();
+            Greenfoot.setWorld(story);
+        }
         if (!play){
             mazeMusic.playLoop();
             play = true;

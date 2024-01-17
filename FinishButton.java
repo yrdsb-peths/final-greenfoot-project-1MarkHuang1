@@ -39,6 +39,7 @@ public class FinishButton extends Actor
         if (isTouching(Player.class)&&Greenfoot.isKeyDown("f"))
         {
             TitleWorld.mazeMusic.setVolume(0);
+            Treasure.treasureMusic.setVolume(80);
             pressed = true;
             realSound.play();
             setImage("images/Finish2.png");

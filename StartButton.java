@@ -4,6 +4,7 @@ public class StartButton extends Actor
 {
     SimpleTimer animationTimer;
     boolean gameStarted = false;
+    GreenfootSound pressSound = new GreenfootSound("real.mp3");
 
     public StartButton() {
         animationTimer = new SimpleTimer();
@@ -14,6 +15,7 @@ public class StartButton extends Actor
         //Change World when pressed
         animate();
         if (Greenfoot.mouseClicked(this)){
+            pressSound.play();
             animationTimer.mark();
             gameStarted = true;
         }
