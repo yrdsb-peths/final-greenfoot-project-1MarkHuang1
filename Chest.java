@@ -7,7 +7,7 @@ public class Chest  extends Actor
     public Chest() {
         setImage("images/chest1.png");
         GreenfootImage image = getImage();
-        chestMusic.setVolume(30);
+        chestMusic.setVolume(50);
         image.scale(58,37);
     }
     public void act()
