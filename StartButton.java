@@ -7,12 +7,8 @@ public class StartButton extends Actor
 
     public StartButton() {
         animationTimer = new SimpleTimer();
-    }
-
-    public void StartButton(){
         setImage("images/Start1.png");
     }
-
     public void act()
     {
         //Change World when pressed
