@@ -49,8 +49,6 @@ public class Maze1 extends World
         player = new Player();
         addObject(player, getWidth()/2, getHeight()/2);
         //
-        FinishButton finishButton2 = new FinishButton();
-        addObject(finishButton2,391,269);
     }
 
     public void act(){

@@ -8,28 +8,25 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class TitleWorld extends World
 {
     //bg music
-    GreenfootSound mazeMusic = new GreenfootSound("mazeMusic.mp3");
+    public static GreenfootSound mazeMusic = new GreenfootSound("mazeMusic.mp3");
     // Title
-    public static int play = 0;
+    private boolean play = false;
     public TitleWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
-        prepare();
         StartButton startButton = new StartButton();
-        addObject(startButton,getWidth()/2,190); 
+        addObject(startButton,getWidth()/2,190);
     }
-    public void prepare(){
 
-    }
     public void act(){
         if (Greenfoot.isKeyDown("e")){
             Rule rule = new Rule();
             Greenfoot.setWorld(rule);
         }
-        if (play == 0){
+        if (!play){
             mazeMusic.playLoop();
-            play += 1;
+            play = true;
         }
     }
 }

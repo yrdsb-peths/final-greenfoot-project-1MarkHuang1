@@ -54,6 +54,7 @@ public class FinishScreen extends World
     }
     public void act(){
         if (Greenfoot.isKeyDown("space")){
+            TitleWorld.mazeMusic.setVolume(100);
             if(FinishButton.which){
                 Maze1.tries = 0;
                 FinishButton.which = false;

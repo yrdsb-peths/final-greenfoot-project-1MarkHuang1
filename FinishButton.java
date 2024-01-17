@@ -2,13 +2,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class FinishButton extends Actor
 {
-
+    GreenfootSound realSound = new GreenfootSound("real.mp3");
     SimpleTimer animationTimer;
     public boolean pressed = false;
     public static int fMin;
     public static int fSec;
     public static boolean which = false;
-    public static boolean stop = false;
     public FinishButton(){
         setImage("images/Finish1.png");
         GreenfootImage image = getImage();
@@ -39,8 +38,9 @@ public class FinishButton extends Actor
     public void animate(){
         if (isTouching(Player.class)&&Greenfoot.isKeyDown("f"))
         {
+            TitleWorld.mazeMusic.setVolume(0);
             pressed = true;
-            stop = true;
+            realSound.play();
             setImage("images/Finish2.png");
             GreenfootImage image = getImage();
             image.scale(20,20);

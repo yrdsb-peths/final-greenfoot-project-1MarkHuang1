@@ -16,6 +16,7 @@ public class Treasure extends World
         Label overScreen = new Label("Press <b> to go to finish screen",30);
         addObject(overScreen,getWidth()/2,100);
     }
+    
     public void act(){
         if (Greenfoot.isKeyDown("b")){
             FinishScreen finishScreen = new FinishScreen();
