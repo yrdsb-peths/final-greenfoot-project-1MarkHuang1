@@ -24,7 +24,12 @@ public class Maze1 extends World
     public Maze1()
     {   
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 500,1); 
+        super(600, 500,1);
+        //ADD CHEAT
+        //FinishButton cheatButton = new FinishButton();
+        //addObject(cheatButton,getWidth()/2 + 20,getHeight()/2);
+        
+        //World
         Label Game = new Label("World1",20);
         addObject(Game,100,100);
         //time
