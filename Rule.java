@@ -22,6 +22,7 @@ public class Rule extends World
         
     }
     public void act(){
+        //changes world
         if (Greenfoot.isKeyDown("b")){
             TitleWorld titleWorld = new TitleWorld();
             Greenfoot.setWorld(titleWorld);

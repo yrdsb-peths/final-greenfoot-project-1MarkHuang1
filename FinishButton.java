@@ -8,6 +8,7 @@ public class FinishButton extends Actor
     public static int fMin;
     public static int fSec;
     public static boolean which = false;
+    //constructer
     public FinishButton(){
         setImage("images/Finish1.png");
         GreenfootImage image = getImage();
@@ -17,6 +18,7 @@ public class FinishButton extends Actor
     {
         //Change World when pressed
         animate();
+        // check if button is pressed
         if (pressed){
             animationTimer = new SimpleTimer();
             pressed = false;
@@ -38,10 +40,13 @@ public class FinishButton extends Actor
     public void animate(){
         if (isTouching(Player.class)&&Greenfoot.isKeyDown("f"))
         {
+            //changes music 
             TitleWorld.mazeMusic.setVolume(0);
             Treasure.treasureMusic.setVolume(80);
             pressed = true;
+            // play press sound
             realSound.play();
+            // change image
             setImage("images/Finish2.png");
             GreenfootImage image = getImage();
             image.scale(20,20);

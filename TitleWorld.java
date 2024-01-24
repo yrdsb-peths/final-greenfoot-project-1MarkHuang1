@@ -1,10 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * This is the title screen 
- * it has a play button, instruction buttons and a story button
- * Changes the world to another when pressed one of those buttons
- */
+
 public class TitleWorld extends World
 {
     //bg music
@@ -20,6 +16,7 @@ public class TitleWorld extends World
     }
 
     public void act(){
+        // changes world
         if (Greenfoot.isKeyDown("e")){
             Rule rule = new Rule();
             Greenfoot.setWorld(rule);
@@ -28,6 +25,7 @@ public class TitleWorld extends World
             Story story = new Story();
             Greenfoot.setWorld(story);
         }
+        // play music once world open and never stop
         if (!play){
             mazeMusic.playLoop();
             play = true;

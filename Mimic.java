@@ -12,9 +12,12 @@ public class Mimic extends Actor
 
     public void act()
     {
+        // checks if player is touching
         if (isTouching(Player.class)&&Greenfoot.isKeyDown("f"))
         {
+            //sound
             faked.play();
+            //changes to world 1
             Maze1 maze1 = (Maze1) getWorld();
             maze1.removeObject(this);
         }   

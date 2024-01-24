@@ -12,6 +12,7 @@ public class Player extends Actor
     GreenfootSound deathSound = new GreenfootSound("deathSound.mp3");
     public static int health = 20;
     public Player(){
+        //set image 
         for  (int i = 0; i< walk.length; i++){
             walk[i] = new GreenfootImage("images/front/char" + i + ".png");
             walk[i].scale(25,30);
@@ -35,6 +36,8 @@ public class Player extends Actor
     public void act()
     {
         dieEnding();
+        //basic movement
+        //Stops player from hit wall
         if (Greenfoot.isKeyDown("a")){
             move(-3);
             setImage(left[imageIndex]);
@@ -82,6 +85,7 @@ public class Player extends Actor
             return false;
         }
     }
+    //check if hit spike
     public boolean hitSpike(){
         if (isTouching(Spike.class)){
             return true;
@@ -90,6 +94,7 @@ public class Player extends Actor
             return false;
         }
     }
+    //check hp and lose when on spike
     public int hpSystem(){
         if(hitSpike()){
             if(hpLose.millisElapsed()>100){
@@ -99,6 +104,7 @@ public class Player extends Actor
         }
         return health;
     }
+    //check when hp == 0 
     public void dieEnding(){
         if (health == 0){
             FinishButton.fMin = Maze1.min;

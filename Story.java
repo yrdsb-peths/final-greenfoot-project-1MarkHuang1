@@ -16,6 +16,7 @@ public class Story extends World
         addObject (back,400,50);
     }
     public void act(){
+        //changes world
          if (Greenfoot.isKeyDown("b")){
             TitleWorld titleWorld = new TitleWorld();
             Greenfoot.setWorld(titleWorld);

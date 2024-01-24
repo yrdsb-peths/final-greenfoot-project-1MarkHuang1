@@ -1,11 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class GameWorld here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+
 public class Maze1 extends World
 {
     public static int sec =0;
@@ -59,8 +54,9 @@ public class Maze1 extends World
     }
 
     public void act(){
-        
+        // check if player got back from world2
         if (Maze2.back){
+            //set to set location
             player.setLocation(340,484);
         }
         Maze2.back = false;
@@ -69,7 +65,7 @@ public class Maze1 extends World
         hp.setValue(Player.health);
 
     }
-
+    //Keeps track of time for each run
     public void time(){
         if (timer.millisElapsed()>1000){
             sec++;
@@ -82,7 +78,7 @@ public class Maze1 extends World
             time.setValue(min + ":" + sec);
         }
     }
-
+    // check which solution to implant
     public void checkSolution(){
         if (which == 1){
             removeObject(real2);
@@ -100,7 +96,7 @@ public class Maze1 extends World
             addObject(real3,22,385);
         }
     }
-
+    // changes solution
     public void changeSolution(){
         if (FinishScreen.change1){
             which = Greenfoot.getRandomNumber(3) + 1;

@@ -43,6 +43,7 @@ public class Maze2 extends World
         hp.setValue(Player.health);
         changeSolution();
     }
+    // Keeps track of time continued from world 1
     public void time(){
         if (timer.millisElapsed()>1000){
             Maze1.sec++;
@@ -55,6 +56,7 @@ public class Maze2 extends World
             time.setValue(Maze1.min + ":" + Maze1.sec);
         }
     }
+    //check which solution to implant
     public void checkSolution(){
         if (Maze1.which == 1){
             removeObject(real2);
@@ -72,6 +74,7 @@ public class Maze2 extends World
             addObject(real3,13,430);
         }
     }
+    //changes solution
     public void changeSolution(){
         if (FinishScreen.change2){
             Maze1.which = Greenfoot.getRandomNumber(3) + 1;
@@ -79,6 +82,7 @@ public class Maze2 extends World
             FinishScreen.change2 = false;
         }
     }
+    // maze setup
     private void prepare()
     {
         Walls walls = new Walls();

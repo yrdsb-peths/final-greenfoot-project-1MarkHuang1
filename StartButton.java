@@ -27,8 +27,10 @@ public class StartButton extends Actor
     }
 
     private void startGame() {
+        // Keeps time
         Maze1.min = 0;
         Maze1.sec = 0;
+        // Reset Hp
         Player.health = 20;
         Maze1 maze1 = new Maze1();
         Greenfoot.setWorld(maze1);

@@ -45,7 +45,7 @@ public class FinishScreen extends World
         Label exit =new Label("Press <space> to return",40);
         addObject(exit,getWidth()/2,250);
     }
-    //change soultion
+    //change soultion of buttons
     public void changeSolution(){
         if (Greenfoot.isKeyDown("r")){
             change1 = true;
@@ -54,12 +54,15 @@ public class FinishScreen extends World
     }
     public void act(){
         if (Greenfoot.isKeyDown("space")){
+            //Changes music volume so music can be changed
             TitleWorld.mazeMusic.setVolume(80);
             Treasure.treasureMusic.setVolume(0);
+            //Check if finishButton is pressed
             if(FinishButton.which){
                 Maze1.tries = 0;
                 FinishButton.which = false;
             }
+            //set new world
             TitleWorld titleWorld = new TitleWorld();
             Greenfoot.setWorld(titleWorld);
             attempt.setValue(0);
